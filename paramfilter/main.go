@@ -23,8 +23,7 @@ type paramRanges []paramRange
 func main() {
 
 	// Read in the parameter file.
-	//file, e := ioutil.ReadFile("/pfs/parameters/parameters.json")
-	file, err := ioutil.ReadFile("example_parameters.json")
+	file, err := ioutil.ReadFile("/pfs/paramranges/parameters.json")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -60,8 +59,7 @@ func main() {
 			jsonOut += fmt.Sprintf("\"%s\": %s, ", rng.Name, paramList[idx])
 		}
 		jsonOut = strings.TrimSuffix(jsonOut, ", ") + "}"
-		//err = ioutil.WriteFile("/pfs/out/"+k, []byte(v), 0644)
-		err = ioutil.WriteFile("/tmp/gridtest/"+k, []byte(jsonOut), 0644)
+		err = ioutil.WriteFile("/pfs/out/"+k, []byte(jsonOut), 0644)
 		if err != nil {
 			log.Fatal(err)
 		}

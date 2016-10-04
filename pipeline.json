@@ -7,13 +7,36 @@
     "cmd": [ "/paramfilter" ],
     "stdin": []
   },
-  "parallelism": "1",
   "inputs": [
     {
       "repo": {
         "name": "paramranges"
       },
       "method": "map"
+    }
+  ]
+}
+{
+  "pipeline": {
+    "name": "evaluate"
+  },
+  "transform": {
+    "image": "dwhitena/modeleval",
+    "cmd": [ "python", "/modeleval.py" ],
+    "stdin": []
+  },
+  "inputs": [
+    {
+      "repo": {
+        "name": "filter"
+      },
+      "method": "map"
+    },
+    {
+      "repo": {
+        "name": "training"
+      },
+      "method": "global"
     }
   ]
 }
