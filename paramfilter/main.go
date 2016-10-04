@@ -54,12 +54,17 @@ func main() {
 
 	// Gather and output the results.
 	for k, v := range combos {
-		fmt.Println(k, v)
-		//data := []byte(v)
-		//err = ioutil.WriteFile("/pfs/out/"+k, data, 0644)
-		//if err != nil {
-		//	log.Fatal(err)
-		//}
+		paramList := strings.Split(v, " ")
+		jsonOut := "{"
+		for idx, rng := range pRanges {
+			jsonOut += fmt.Sprintf("\"%s\": %s, ", rng.Name, paramList[idx])
+		}
+		jsonOut = strings.TrimSuffix(jsonOut, ", ") + "}"
+		//err = ioutil.WriteFile("/pfs/out/"+k, []byte(v), 0644)
+		err = ioutil.WriteFile("/tmp/gridtest/"+k, []byte(jsonOut), 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }
 

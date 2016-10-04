@@ -1,0 +1,14 @@
+[
+	{
+		"name": "n_estimators",
+		"Min": 1,
+		"Max": 50,
+		"Increment": 10
+	},
+	{
+		"name": "max_features",
+		"Min": 2,
+		"Max": 11,
+		"Increment": 1
+	}
+]

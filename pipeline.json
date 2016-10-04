@@ -1,0 +1,19 @@
+{
+  "pipeline": {
+    "name": "filter"
+  },
+  "transform": {
+    "image": "dwhitena/paramfilter",
+    "cmd": [ "/paramfilter" ],
+    "stdin": []
+  },
+  "parallelism": "1",
+  "inputs": [
+    {
+      "repo": {
+        "name": "paramranges"
+      },
+      "method": "map"
+    }
+  ]
+}
