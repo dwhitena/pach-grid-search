@@ -2,8 +2,8 @@
 	{
 		"name": "n_estimators",
 		"Min": 1,
-		"Max": 50,
-		"Increment": 10
+		"Max": 500,
+		"Increment": 20
 	},
 	{
 		"name": "max_features",
